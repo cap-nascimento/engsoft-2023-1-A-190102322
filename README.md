@@ -50,4 +50,4 @@ Login:
     - Erro na formatação da planilha;
 1. A lista gerada na aba seção de listagem deve ser baixada em formato .PDF.
 
-##### [Link](https://www.figma.com/file/CF5wbHkFCRVcfInC9Xk2lN/chamadapy?node-id=0%3A1&t=xEqPnCiawASl74rI-1) para protótipo no FIGMA:
+##### [Link](https://www.figma.com/proto/CF5wbHkFCRVcfInC9Xk2lN/chamadapy?node-id=1-2&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A2&show-proto-sidebar=1) para protótipo no FIGMA:
