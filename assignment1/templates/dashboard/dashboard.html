@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="tokengen-tab" data-bs-toggle="tab" 
+        data-bs-target="#tokengen" type="button" role="tab" aria-controls="tokengen" aria-selected="true">Gerar Token</button>
+    </li>
+    <li class="nav-item" role="presentation">
+    <button class="nav-link" id="cadastro-tab" data-bs-toggle="tab" 
+        data-bs-target="#cadastro" type="button" role="tab" aria-controls="cadastro" aria-selected="false">Cadastro</button>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="tokengen" role="tabpanel" aria-labelledby="tokengen-tab">
+        <form action="/newtoken" method="POST">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkSpecialChar" name="special">
+                <label class="form-check-label" for="checkSpecialChar">
+                    Incluir caractere especial (!, @, #, etc).
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkUpperLower" name="upperlower">
+                <label class="form-check-label" for="checkUpperLower">
+                    Incluir letras maiúsculas e minúsculas.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkNumber" name="number">
+                <label class="form-check-label" for="checkNumber">
+                    Incluir números.
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Gerar Token</button>
+        </form>
+    </div>
+    <div class="tab-pane fade" id="cadastro" role="tabpanel" aria-labelledby="cadastro-tab">
+        <h3>Indisponível</h3>
+    </div>
+</div>
+{% endblock %}
