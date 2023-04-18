@@ -1,7 +1,14 @@
 from flask import Flask, render_template, request
+from flask import jsonify
+import json
 from utils.token_generator import generator 
 
 app = Flask(__name__)
+
+with open('mockdata/users.json', 'r') as mockUsers:
+    data = mockUsers.read()
+
+obj = json.loads(data)
 
 @app.route("/")
 def login_user():
@@ -39,6 +46,25 @@ def generate_token():
         token = generator(json_result)
         return render_template('dashboard/dashboard.html', token = token)
     return '<h4>Error</h4>'
+
+@app.route("/api/user/getall", methods=['GET'])
+def get_users():
+    return jsonify(obj)
+
+
+@app.route("/api/user/create", methods=['POST'])
+def create_user():
+    return 'create user'
+
+
+@app.route("/api/user/update", methods=['UPDATE'])
+def update_user():
+    return 'update user'
+
+
+@app.route("/api/user/delete", methods=['DELETE'])
+def delete_user():
+    return 'delete user'
 
 if __name__ == '__main__':
     app.run(debug = True)
