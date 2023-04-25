@@ -1,0 +1,4 @@
+[
+    {"id": 1, "nome": "Anderson Vieira do Nascimento", "matricula": "19/0102322", "role": "USER", "cpf": "056.931.511-58"},
+    {"id": 2, "nome": "Anderson Vieira", "matricula": "", "role": "ADMIN", "cpf": "056.931.511-58"}
+]

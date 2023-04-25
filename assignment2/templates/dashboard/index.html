@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="imgsearch-tab" data-bs-toggle="tab" 
+        data-bs-target="#imgsearch" type="button" role="tab" aria-controls="imgsearch" aria-selected="true">Gerar Imagem</button>
+    </li>
+    <li class="nav-item" role="presentation">
+    <button class="nav-link" id="cadastro-tab" data-bs-toggle="tab" 
+        data-bs-target="#cadastro" type="button" role="tab" aria-controls="cadastro" aria-selected="false">Cadastro</button>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="imgsearch" role="tabpanel" aria-labelledby="imgsearch-tab">
+        {% block imgsearch %}{% endblock %}
+    </div>
+    <div class="tab-pane fade" id="cadastro" role="tabpanel" aria-labelledby="cadastro-tab">
+        <h3>Indisponível</h3>
+    </div>
+</div>
+{% endblock %}

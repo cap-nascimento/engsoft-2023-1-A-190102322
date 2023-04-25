@@ -4,9 +4,9 @@
 
 Interação:
 
-1. O aluno poderá marcar a presença apenas com o token fornecido pelo administrador (o token é um código aleatório gerado pelo administrador). O token será disponibilizado como não-editável para os alunos;
-1. A geração de código aleatório é exclusividade do administrador;
-    - O código poderá ser atualizado a qualquer momento pelo administrador do sistema;
+1. O aluno poderá marcar a presença apenas com o *full_name* da imagem gerada pelo sistema (A API da NASA Mars será utilizada). O *full_name* será disponibilizado pelo administrador;
+1. A busca pela imagem aleatória é exclusividade do administrador;
+    - A imagem e o *full_name* poderão ser atualizados a qualquer momento pelo administrador do sistema;
 1. O administrador poderá exportar uma listagem dos alunos presentes. A listagem deverá conter também a data em que será exportada;
     - O administrador deverá definir os horários e a data em que deseja verificar a presença dos alunos;
 
@@ -37,8 +37,7 @@ Login:
 1. A página de login do administrador deverá ser acessada pela rota ‘/admin’;
 1. O Token deverá ter 8 caracteres, entre alfanuméricos e símbolos especiais;
 1. O formulário de envio do Token deve alertar ao usuário nos seguintes cenários:
-    - Token incorreto;
-    - Token com menos ou mais que 8 caracteres;
+    - *full_name* incorreto;
 1. O formulário de carregamento da planilha deverá alertar o usuário nos seguintes cenários:
     - Erro no upload da planilha;
     - Erro na formatação da planilha;

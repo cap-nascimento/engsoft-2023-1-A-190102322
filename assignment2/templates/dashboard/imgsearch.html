@@ -1,0 +1,19 @@
+{% extends 'dashboard/index.html' %}
+
+{% block imgsearch %}
+<form action="/newimage" method="POST">
+    {{ url }}
+    <label for="date" class="col-1 col-form-label">Date</label>
+    <div class="col-5">
+      <div class="input-group date" id="datepicker">
+        <input type="text" class="form-control" id="date" name="earth_date"/>
+        <span class="input-group-append">
+          <span class="input-group-text bg-light d-block">
+            <i class="fa fa-calendar"></i>
+          </span>
+        </span>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+{% endblock %}
