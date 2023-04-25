@@ -5,9 +5,9 @@ import urllib.request, json
 from utils.token_generator import generator 
 
 import os
+import random
 
 app = Flask(__name__)
-app.config['NASA_API_KEY'] = 'OKsH8ppdd1FH0mrISWCpCB8UIzdZYvk5TpnUPy0i'
 
 with open('mockdata/users.json', 'r') as mockUsers:
     data = mockUsers.read()
@@ -49,7 +49,18 @@ def search_nasa_image():
         json_result = dict(result)
         search_filter = 'mars-photos/api/v1/rovers/curiosity/photos'
         url = 'https://api.nasa.gov/{}?earth_date={}&api_key={}'.format(search_filter, json_result['earth_date'], os.environ.get('NASA_API_KEY'))
-        return render_template('dashboard/imgsearch.html', url = url)
+
+        response = urllib.request.urlopen(url)
+        data = response.read()
+        data_dict = json.loads(data)
+
+        photo_index = random.randint(0, len(data_dict['photos'])-1) if len(data_dict['photos']) > 0 else 0 
+        
+        if photo_index == 0:
+            return render_template('dashboard/imgsearch.html')
+        else:
+            return render_template('dashboard/imgsearch.html', photo=data_dict['photos'][photo_index])
+    return '<h4>Você precisa logar</h4>'
 
 # @app.route("/newtoken", methods=['POST', 'GET'])
 # def generate_token():

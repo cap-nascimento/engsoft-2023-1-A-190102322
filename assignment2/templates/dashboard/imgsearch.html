@@ -1,19 +1,24 @@
 {% extends 'dashboard/index.html' %}
 
 {% block imgsearch %}
-<form action="/newimage" method="POST">
-    {{ url }}
-    <label for="date" class="col-1 col-form-label">Date</label>
-    <div class="col-5">
-      <div class="input-group date" id="datepicker">
-        <input type="text" class="form-control" id="date" name="earth_date"/>
-        <span class="input-group-append">
-          <span class="input-group-text bg-light d-block">
-            <i class="fa fa-calendar"></i>
+  {% if photo is defined %}
+  <img src="{{ photo['img_src'] }}" alt="mars photo" width="500" height="500">
+  <h3>{{ photo['camera']['full_name'] }} {{ photo['id'] }}</h3>
+  {% endif %}
+  <form action="/newimage" method="POST">
+      {{ url }}
+      <label for="date" class="col-1 col-form-label">Date</label>
+      <input type="date" id="start" name="earth_date" value="2014-07-22" min="1990-01-01" max="2022-12-31">
+      <!-- <div class="col-5">
+        <div class="input-group date" id="datepicker">
+          <input type="text" class="form-control" id="date" name="earth_date"/>
+          <span class="input-group-append">
+            <span class="input-group-text bg-light d-block">
+              <i class="fa fa-calendar"></i>
+            </span>
           </span>
-        </span>
-      </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Buscar</button>
-</form>
+        </div>
+      </div> -->
+      <button type="submit" class="btn btn-primary">Buscar</button>
+  </form>
 {% endblock %}
