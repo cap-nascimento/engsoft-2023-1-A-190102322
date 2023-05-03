@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<form action="/attendance" method="POST">
+    <div class="col-md-4">
+        <label for="matricula" class="form-label">Matrícula</label>
+        <input type="text" class="form-control" id="matriculaId" name="matricula" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Entrar</button>
+</form>
+{% endblock %}

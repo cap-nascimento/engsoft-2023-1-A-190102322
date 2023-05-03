@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="imgsearch-tab" data-bs-toggle="tab"
+        data-bs-target="#imgsearch" type="button" role="tab"
+        aria-controls="imgsearch" aria-selected="true">
+        Gerar Imagem
+    </button>
+    </li>
+    <li class="nav-item" role="presentation">
+    <button class="nav-link" id="cadastro-tab" data-bs-toggle="tab" 
+        data-bs-target="#cadastro" type="button" role="tab"
+        aria-controls="cadastro" aria-selected="false">
+        Cadastro
+    </button>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="imgsearch" role="tabpanel" 
+        aria-labelledby="imgsearch-tab">
+        {% if photo is defined %}
+        <img src="{{ photo['img_src'] }}" alt="mars photo" width="500" height="500">
+        <h3>{{ photo['camera']['full_name'] }} {{ photo['id'] }}</h3>
+        {% endif %}
+        <form action="/newimage" method="POST">
+            {{ url }}
+            <label for="date" class="col-1 col-form-label">Date</label>
+            <input type="date" id="start" name="earth_date" value="2014-07-22" min="1990-01-01" max="2022-12-31">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+    </div>
+    <div class="tab-pane fade" id="cadastro" role="tabpanel" 
+        aria-labelledby="cadastro-tab">
+        <ul class="nav nav-tabs" id="managerTab" role="tablist">
+            <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="insert-tab" data-bs-toggle="tab"
+                data-bs-target="#insert" type="button" role="tab" 
+                aria-controls="insert" aria-selected="true">
+                INSERIR
+            </button>
+            </li>
+            <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="list-tab" data-bs-toggle="tab"
+                data-bs-target="#list" type="button" role="tab" 
+                aria-controls="list" aria-selected="false">
+                LISTAR
+            </button>
+            </li>
+        </ul>
+        <div class="tab-content" id="managerTabContent">
+            <div class="tab-pane fade show active" id="insert" role="tabpanel"
+                aria-labelledby="insert-tab">
+                inserir aluno
+            </div>
+            <div class="tab-pane fade show active" id="list" role="tabpanel"
+                aria-labelledby="list-tab">
+                listar alunos
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
